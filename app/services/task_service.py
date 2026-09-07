@@ -64,3 +64,17 @@ def update_task(db: Session, task_id: int, task_data: TaskUpdate):
     db.refresh(task)
 
     return task
+
+def delete_task(db: Session, task_id: int):
+    task = db.query(Task).filter(Task.id == task_id).first()
+
+    if not task:
+        raise HTTPException(
+            status_code=404,
+            detail="Task not found"
+        )
+
+    db.delete(task)
+    db.commit()
+
+    return {"message": "Task deleted successfully"}
