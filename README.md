@@ -1,31 +1,60 @@
 # Task Management API
 
-A Task Management API built using Python and FastAPI.
+A modular Task Management REST API built using FastAPI, PostgreSQL, SQLAlchemy, and Pydantic.
 
-## Technologies
+## Features
+
+- User Management
+- Task Management
+- Email Validation
+- Duplicate Email Validation
+- Task Status Validation
+- PostgreSQL Database
+- SQLAlchemy ORM
+- RESTful API Endpoints
+- Automated API Testing using Pytest
+- Modular Project Structure
+
+## Technologies Used
 
 - Python
 - FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Pydantic
+- Pytest
 - Uvicorn
+- Git & GitHub
 
 ## Project Structure
 
-The project follows a modular architecture.
-
-## How to Run
-
-Create virtual environment:
-
-python -m venv venv
-
-Activate:
-
-venv\Scripts\activate
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run the application:
-
-uvicorn app.main:app --reload
+```text
+task-management-api/
+│
+├── app/
+│   ├── main.py
+│   ├── config.py
+│   ├── database.py
+│   │
+│   ├── models/
+│   │   ├── user.py
+│   │   └── task.py
+│   │
+│   ├── schemas/
+│   │   ├── user.py
+│   │   └── task.py
+│   │
+│   ├── services/
+│   │   ├── user_service.py
+│   │   └── task_service.py
+│   │
+│   └── utils/
+│       └── validators.py
+│
+├── tests/
+│   └── test_api.py
+│
+├── requirements.txt
+├── .gitignore
+├── .env.example
+└── README.md
