@@ -1,0 +1,1 @@
+DATABASE_URL = "postgresql://postgres:Gayathribtech@2006@localhost:2309/task_management_db"
