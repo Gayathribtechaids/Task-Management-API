@@ -11,6 +11,21 @@ from app.schemas.task import TaskCreate
 
 from app.services.user_service import create_user
 from app.services.task_service import create_task
+from app.services.task_service import create_task, get_all_tasks
+from app.schemas.task import TaskCreate, TaskUpdate
+
+from app.services.task_service import (
+    create_task,
+    get_all_tasks,
+    get_task_by_id,
+    update_task
+)
+
+from app.services.task_service import (
+    create_task,
+    get_all_tasks,
+    get_task_by_id
+)
 
 
 # Create database tables
@@ -53,3 +68,19 @@ def create_new_task(
     db: Session = Depends(get_db)
 ):
     return create_task(db, task)
+
+@app.get("/tasks")
+def get_tasks(db: Session = Depends(get_db)):
+    return get_all_tasks(db)
+
+@app.get("/tasks/{task_id}")
+def get_task(task_id: int, db: Session = Depends(get_db)):
+    return get_task_by_id(db, task_id)
+
+@app.put("/tasks/{task_id}")
+def update_existing_task(
+    task_id: int,
+    task_data: TaskUpdate,
+    db: Session = Depends(get_db)
+):
+    return update_task(db, task_id, task_data)

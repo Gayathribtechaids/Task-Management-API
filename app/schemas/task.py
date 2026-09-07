@@ -6,3 +6,8 @@ class TaskCreate(BaseModel):
     description: str | None = None
     status: str = "pending"
     user_id: int
+
+class TaskUpdate(BaseModel):
+    title: str
+    description: str | None = None
+    status: str
